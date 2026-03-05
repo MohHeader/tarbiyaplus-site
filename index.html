@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="تربية بلس - لأن ما في manual. نصائح تربوية تجمع بين القيم الإسلامية والعلم الحديث">
-    <title>تربية بلس - قريباً</title>
+    <meta name="description" content="تربية بلس - لأن ما في manual. نصائح تربوية تجمع بين القيم الإسلامية والعلم الحديث في تربية الأطفال">
+    <meta name="keywords" content="تربية, أطفال, تربية إسلامية, نصائح تربوية, أبوة, أمومة">
+    <title>تربية بلس - لأن ما في manual</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -13,116 +20,470 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #FFF8F0;
+            color: #2C3E2F;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background-color: #4A7C59;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(74, 124, 89, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: #ffffff;
+            justify-content: space-between;
         }
 
-        .container {
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #FFF8F0;
+            text-decoration: none;
+        }
+
+        .tagline-header {
+            font-size: 0.95rem;
+            color: #E8F5E9;
+            font-weight: 300;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6B9B7F 0%, #4A7C59 100%);
+            padding: 5rem 1.5rem;
             text-align: center;
-            max-width: 600px;
-            width: 100%;
-            animation: fadeIn 1s ease-in;
+            color: #FFF8F0;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
         }
 
-        .tagline {
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
+        .hero-tagline {
+            font-size: clamp(1.3rem, 4vw, 2rem);
             font-weight: 300;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             opacity: 0.95;
         }
 
-        .coming-soon {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .coming-soon h2 {
-            font-size: clamp(1.5rem, 5vw, 2rem);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .coming-soon p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            line-height: 1.6;
+        .hero-description {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
             opacity: 0.9;
         }
 
-        .emoji {
-            font-size: clamp(3rem, 10vw, 5rem);
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 1.5rem;
+            background-color: #FAF5EF;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 700;
+            color: #4A7C59;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            line-height: 1.9;
+            color: #3D5A40;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(74, 124, 89, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(74, 124, 89, 0.15);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             display: block;
-            animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .value-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #4A7C59;
+            margin-bottom: 0.75rem;
         }
 
-        footer {
+        .value-description {
+            font-size: 1rem;
+            color: #5A6C57;
+            line-height: 1.7;
+        }
+
+        /* Articles Section */
+        .articles {
+            padding: 4rem 1.5rem;
+            background-color: #FFF8F0;
+        }
+
+        .articles-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
+        }
+
+        .article-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(74, 124, 89, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(74, 124, 89, 0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #8FB99C 0%, #6B9B7F 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .article-content {
+            padding: 1.75rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2C3E2F;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            font-size: 1rem;
+            color: #5A6C57;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .article-meta {
             font-size: 0.9rem;
-            opacity: 0.8;
+            color: #8FB99C;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #4A7C59;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #6B9B7F;
+        }
+
+        /* Coming Soon Note */
+        .coming-soon-note {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(74, 124, 89, 0.05);
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 2px dashed #8FB99C;
+        }
+
+        .coming-soon-note p {
+            font-size: 1.1rem;
+            color: #4A7C59;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3D5A40;
+            color: #E8F5E9;
+            padding: 3rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #FFF8F0;
+        }
+
+        .footer-tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .footer-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.85;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #E8F5E9;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #8FB99C;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(232, 245, 233, 0.2);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3.5rem 1rem;
+            }
+
+            .about,
+            .articles {
+                padding: 3rem 1rem;
+            }
+
+            .about-values,
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            footer {
+                padding: 2.5rem 1rem 1.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
+            .value-card {
+                padding: 1.5rem;
             }
 
-            .coming-soon {
+            .article-content {
                 padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="emoji">🌱</span>
-        <h1>تربية بلس</h1>
-        <p class="tagline">لأن ما في manual</p>
-
-        <div class="coming-soon">
-            <h2>قريباً...</h2>
-            <p>نحن نحضّر لكم مساحة دافئة لنصائح تربوية تجمع بين القيم الإسلامية وعلم التربية الحديث</p>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">تربية بلس</a>
+            <p class="tagline-header">لأن ما في manual</p>
         </div>
+    </header>
 
-        <footer>
-            <p>tarbiyaplus.com</p>
-        </footer>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-icon">🌱</span>
+            <h1>تربية بلس</h1>
+            <p class="hero-tagline">لأن ما في manual</p>
+            <p class="hero-description">
+                مساحة دافئة تجمع بين القيم الإسلامية وعلم التربية الحديث، لأننا نؤمن أن تربية الأطفال رحلة نتعلمها معاً
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2 class="section-title">من نحن</h2>
+            <p class="about-text">
+                تربية بلس هو مصدرك الموثوق للنصائح التربوية باللغة العربية. نجمع بين حكمة التربية الإسلامية وأحدث الأبحاث العلمية لنقدم لك محتوى عملي ومفيد يساعدك في رحلتك التربوية
+            </p>
+            <p class="about-text">
+                نكتب بصدق، نشارك تجارب حقيقية، ونقدم حلولاً واقعية تناسب بيئتنا وثقافتنا
+            </p>
+
+            <div class="about-values">
+                <div class="value-card">
+                    <span class="value-icon">📚</span>
+                    <h3 class="value-title">علم موثوق</h3>
+                    <p class="value-description">نعتمد على أحدث الدراسات العلمية في علم نفس الطفل والتربية</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">🤲</span>
+                    <h3 class="value-title">قيم إسلامية</h3>
+                    <p class="value-description">نربط بين التوجيهات الإسلامية والممارسات التربوية الحديثة</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">💚</span>
+                    <h3 class="value-title">محتوى عملي</h3>
+                    <p class="value-description">نصائح واقعية وقابلة للتطبيق في حياتك اليومية مع أطفالك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles">
+        <div class="articles-content">
+            <h2 class="section-title">أحدث المقالات</h2>
+
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">🧸</div>
+                    <div class="article-content">
+                        <div class="article-meta">تربية الأطفال</div>
+                        <h3 class="article-title">كيف نبني الثقة بالنفس عند أطفالنا؟</h3>
+                        <p class="article-excerpt">
+                            الثقة بالنفس ليست هدية نمنحها لأطفالنا، بل هي مهارة نساعدهم على بنائها يوماً بعد يوم. في هذا المقال، نستكشف طرق عملية مبنية على العلم والقيم الإسلامية
+                        </p>
+                        <a href="#" class="read-more">اقرأ المزيد ←</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">😌</div>
+                    <div class="article-content">
+                        <div class="article-meta">الصحة النفسية</div>
+                        <h3 class="article-title">التعامل مع نوبات الغضب: دليل عملي</h3>
+                        <p class="article-excerpt">
+                            نوبات الغضب جزء طبيعي من نمو الطفل. تعلم كيف تتعامل معها بحكمة وصبر، وكيف تحول هذه اللحظات الصعبة إلى فرص للتعلم والنمو
+                        </p>
+                        <a href="#" class="read-more">اقرأ المزيد ←</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">📖</div>
+                    <div class="article-content">
+                        <div class="article-meta">التعليم والتطور</div>
+                        <h3 class="article-title">أهمية القراءة المبكرة وكيف نبدأ</h3>
+                        <p class="article-excerpt">
+                            القراءة للأطفال منذ الصغر تفتح أمامهم عوالم لا حدود لها. اكتشف الفوائد العلمية للقراءة المبكرة ونصائح عملية لجعلها جزءاً من روتينك اليومي
+                        </p>
+                        <a href="#" class="read-more">اقرأ المزيد ←</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="coming-soon-note">
+                <p>المزيد من المقالات قادمة قريباً إن شاء الله 🌟</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="footer-brand">تربية بلس</h3>
+            <p class="footer-tagline">لأن ما في manual</p>
+            <p class="footer-description">
+                نسعى لنكون المصدر الأول للمحتوى التربوي باللغة العربية في المملكة العربية السعودية ومنطقة الشرق الأوسط
+            </p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">عن تربية بلس</a>
+                <a href="#" class="footer-link">اتصل بنا</a>
+                <a href="#" class="footer-link">سياسة الخصوصية</a>
+            </div>
+            <p class="footer-copyright">
+                © 2026 تربية بلس. جميع الحقوق محفوظة
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
