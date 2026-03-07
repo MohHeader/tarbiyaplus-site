@@ -1,0 +1,16 @@
+---
+interface Props {
+    rightTitle: string;
+    leftTitle: string;
+}
+const { rightTitle, leftTitle } = Astro.props;
+---
+<div class="comparison-box">
+    <div class="comparison-side comparison-right">
+        <h4>{rightTitle}</h4>
+    </div>
+    <div class="comparison-side comparison-left">
+        <h4>{leftTitle}</h4>
+    </div>
+    <slot />
+</div>

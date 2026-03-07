@@ -1,0 +1,11 @@
+---
+interface Props {
+    stat: string;
+    source: string;
+}
+const { stat, source } = Astro.props;
+---
+<div class="stat-highlight">
+    <div class="stat-highlight-value">{stat}</div>
+    <div class="stat-highlight-source">{source}</div>
+</div>

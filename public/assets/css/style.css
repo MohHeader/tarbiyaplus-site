@@ -422,6 +422,120 @@ footer {
     border-top: 1px solid rgba(232, 245, 233, 0.2);
 }
 
+/* ========== Age Table ========== */
+
+.age-table {
+    background: #FAF5EF;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border: 2px solid #8FB99C;
+}
+
+.age-table h3 {
+    color: #4A7C59;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* ========== Scenario Box ========== */
+
+.scenario-box {
+    background: #f0f4ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-right: 4px solid #4A7C59;
+}
+
+.scenario-box h3 {
+    color: #4A7C59;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* ========== Stat Highlight ========== */
+
+.stat-highlight {
+    background: linear-gradient(135deg, #6B9B7F 0%, #4A7C59 100%);
+    color: #FFF8F0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.stat-highlight-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-highlight-source {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* ========== Comparison Box ========== */
+
+.comparison-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.comparison-side {
+    padding: 1.25rem;
+    border-radius: 8px;
+}
+
+.comparison-side h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.comparison-right {
+    background: #f0fff4;
+    border: 2px solid #4A7C59;
+}
+
+.comparison-right h4 {
+    color: #4A7C59;
+}
+
+.comparison-left {
+    background: #fff5f5;
+    border: 2px solid #c53030;
+}
+
+.comparison-left h4 {
+    color: #c53030;
+}
+
+@media (max-width: 768px) {
+    .comparison-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== Warning Box ========== */
+
+.warning-box {
+    background: #fff5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border: 2px solid #c53030;
+}
+
+.warning-box h3 {
+    color: #c53030;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
 /* ========== Responsive ========== */
 
 @media (max-width: 768px) {

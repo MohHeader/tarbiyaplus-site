@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles')).sort(
+    (a, b) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf()
+);
+---
+<BaseLayout
+    title="تربية بلس"
+    description="تربية بلس - نصائح تربوية تجمع بين القيم الإسلامية والعلم الحديث في تربية الأطفال"
+>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>تربية بلس</h1>
+            <p class="hero-description">
+                مساحة دافئة تجمع بين القيم الإسلامية وعلم التربية الحديث، نساعدك في رحلتك مع أطفالك بنصائح عملية مبنية على العلم والتجربة
+            </p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="section-content">
+            <h2 class="section-title">من نحن</h2>
+            <p class="section-text">
+                تربية بلس هو مصدرك الموثوق للنصائح التربوية باللغة العربية. نجمع بين حكمة التربية الإسلامية وأحدث الأبحاث العلمية لنقدم لك محتوى عملي ومفيد يساعدك في رحلتك التربوية
+            </p>
+            <p class="section-text">
+                نكتب بصدق، نشارك تجارب حقيقية، ونقدم حلولاً واقعية تناسب بيئتنا وثقافتنا
+            </p>
+
+            <div class="cards-grid">
+                <div class="value-card">
+                    <span class="value-icon">&#x1F4DA;</span>
+                    <h3 class="value-title">علم موثوق</h3>
+                    <p class="value-description">نعتمد على أحدث الدراسات العلمية في علم نفس الطفل والتربية</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">&#x1F932;</span>
+                    <h3 class="value-title">قيم إسلامية</h3>
+                    <p class="value-description">نربط بين التوجيهات الإسلامية والممارسات التربوية الحديثة</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">&#x1F49A;</span>
+                    <h3 class="value-title">محتوى عملي</h3>
+                    <p class="value-description">نصائح واقعية وقابلة للتطبيق في حياتك اليومية مع أطفالك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-content">
+            <h2 class="section-title">أحدث المقالات</h2>
+
+            <div class="cards-grid">
+                {articles.map(article => (
+                    <ArticleCard
+                        title={article.data.title}
+                        excerpt={article.data.excerpt}
+                        category={article.data.category}
+                        coverImage={article.data.coverImage}
+                        coverAlt={article.data.coverAlt}
+                        slug={article.id}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+</BaseLayout>

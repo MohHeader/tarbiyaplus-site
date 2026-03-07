@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+    currentSlug: string;
+    tags: string[];
+}
+
+const { currentSlug, tags } = Astro.props;
+
+const allArticles = await getCollection('articles');
+const related = allArticles
+    .filter(article => article.id !== currentSlug)
+    .filter(article => article.data.tags.some((tag: string) => tags.includes(tag)))
+    .slice(0, 3);
+---
+
+{related.length > 0 && (
+    <div class="related-articles">
+        <h2>مقالات ذات صلة</h2>
+        <ul>
+            {related.map(article => (
+                <li><a href={`/articles/${article.id}/`}>{article.data.title}</a></li>
+            ))}
+        </ul>
+    </div>
+)}
