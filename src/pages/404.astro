@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+    title="٤٠٤ — الصفحة ضاعت | تربية بلس"
+    description="الصفحة اللي تدور عليها مو موجودة"
+>
+    <main class="error-page">
+        <div class="error-content">
+            <div class="error-number">٤٠٤</div>
+            <h1>الصفحة راحت تنام بدري</h1>
+            <p class="error-description">
+                يبدو إن هالصفحة طبّقت نصايحنا في تنظيم النوم وراحت تنام قبلك.
+                <br>
+                أو يمكن ضاعت وهي تركض في الصالة مثل أي طفل الساعة ١٠ بالليل.
+            </p>
+            <a href="/" class="error-button">رجّعني للصفحة الرئيسية</a>
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    .error-page {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3rem 1.5rem;
+    }
+
+    .error-content {
+        max-width: 600px;
+    }
+
+    .error-number {
+        font-size: clamp(5rem, 15vw, 10rem);
+        font-weight: 700;
+        color: #8FB99C;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+
+    .error-page h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        color: #4A7C59;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+    }
+
+    .error-description {
+        font-size: 1.1rem;
+        color: #5A6C57;
+        line-height: 1.9;
+        margin-bottom: 2.5rem;
+    }
+
+    .error-button {
+        display: inline-block;
+        background-color: #4A7C59;
+        color: #FFF8F0;
+        padding: 0.85rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .error-button:hover {
+        background-color: #3D5A40;
+    }
+</style>
