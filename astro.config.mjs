@@ -6,6 +6,7 @@ export default defineConfig({
   site: 'https://tarbiyaplus.com',
   integrations: [mdx(), sitemap()],
   redirects: {
+    '/sitemap.xml': '/sitemap-index.xml',
     '/about.html': '/about/',
     '/privacy.html': '/privacy/',
     '/articles/sleep-training.html': '/articles/sleep-training/',
