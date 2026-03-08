@@ -12,11 +12,13 @@ const articles = (await getCollection('articles')).sort(
     description="تربية بلس - نصائح تربوية تجمع بين القيم الإسلامية والعلم الحديث في تربية الأطفال"
 >
     <section class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>تربية بلس</h1>
             <p class="hero-description">
                 مساحة دافئة تجمع بين القيم الإسلامية وعلم التربية الحديث، نساعدك في رحلتك مع أطفالك بنصائح عملية مبنية على العلم والتجربة
             </p>
+            <a href="#articles" class="hero-cta">تصفح المقالات</a>
         </div>
     </section>
 
@@ -50,7 +52,7 @@ const articles = (await getCollection('articles')).sort(
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="articles">
         <div class="section-content">
             <h2 class="section-title">أحدث المقالات</h2>
 
