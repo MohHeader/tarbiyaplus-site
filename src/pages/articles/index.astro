@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles')).sort(
+    (a, b) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf()
+);
+
+// Extract unique categories with article counts
+const categoryMap = new Map<string, number>();
+articles.forEach(article => {
+    const cat = article.data.category;
+    categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
+});
+const categories = Array.from(categoryMap.entries()).sort((a, b) => b[1] - a[1]);
+---
+<BaseLayout
+    title="جميع المقالات — تربية بلس"
+    description="تصفح جميع مقالات تربية بلس في التربية الإسلامية وتطوير الأطفال — نصائح عملية مبنية على العلم والتجربة"
+    canonicalPath="/articles/"
+>
+    <section class="archive-hero">
+        <div class="archive-hero-content">
+            <h1>جميع المقالات</h1>
+            <p class="archive-description">
+                {articles.length} مقال في التربية والأطفال — اختر القسم اللي يهمك
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-content">
+            <div class="category-filters">
+                <a href="/articles/" class="category-chip active">الكل ({articles.length})</a>
+                {categories.map(([cat, count]) => (
+                    <a href={`/articles/category/${encodeURIComponent(cat)}/`} class="category-chip">
+                        {cat} ({count})
+                    </a>
+                ))}
+            </div>
+
+            <div class="cards-grid">
+                {articles.map(article => (
+                    <ArticleCard
+                        title={article.data.title}
+                        excerpt={article.data.excerpt}
+                        category={article.data.category}
+                        coverImage={article.data.coverImage}
+                        coverAlt={article.data.coverAlt}
+                        slug={article.id}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+</BaseLayout>

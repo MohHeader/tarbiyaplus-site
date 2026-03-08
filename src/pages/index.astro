@@ -55,7 +55,7 @@ const articles = (await getCollection('articles')).sort(
             <h2 class="section-title">أحدث المقالات</h2>
 
             <div class="cards-grid">
-                {articles.map(article => (
+                {articles.slice(0, 6).map(article => (
                     <ArticleCard
                         title={article.data.title}
                         excerpt={article.data.excerpt}
@@ -66,6 +66,12 @@ const articles = (await getCollection('articles')).sort(
                     />
                 ))}
             </div>
+
+            {articles.length > 6 && (
+                <div class="view-all-container">
+                    <a href="/articles/" class="view-all-link">تصفح جميع المقالات ←</a>
+                </div>
+            )}
         </div>
     </section>
 </BaseLayout>

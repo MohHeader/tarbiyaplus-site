@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const articles = await getCollection('articles');
+
+    // Get unique categories
+    const categories = [...new Set(articles.map(a => a.data.category))];
+
+    return categories.map(category => ({
+        params: { category },
+        props: {
+            category,
+            articles: articles
+                .filter(a => a.data.category === category)
+                .sort((a, b) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf()),
+        },
+    }));
+}
+
+const { category, articles } = Astro.props;
+
+// Get all categories for the filter chips
+const allArticles = await getCollection('articles');
+const categoryMap = new Map<string, number>();
+allArticles.forEach(article => {
+    const cat = article.data.category;
+    categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
+});
+const categories = Array.from(categoryMap.entries()).sort((a, b) => b[1] - a[1]);
+---
+<BaseLayout
+    title={`${category} — تربية بلس`}
+    description={`مقالات تربية بلس في قسم ${category} — نصائح عملية مبنية على العلم والتجربة`}
+    canonicalPath={`/articles/category/${encodeURIComponent(category)}/`}
+>
+    <section class="archive-hero">
+        <div class="archive-hero-content">
+            <h1>{category}</h1>
+            <p class="archive-description">
+                {articles.length} {articles.length === 1 ? 'مقال' : 'مقالات'} في هذا القسم
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-content">
+            <div class="category-filters">
+                <a href="/articles/" class="category-chip">الكل ({allArticles.length})</a>
+                {categories.map(([cat, count]) => (
+                    <a
+                        href={`/articles/category/${encodeURIComponent(cat)}/`}
+                        class={`category-chip ${cat === category ? 'active' : ''}`}
+                    >
+                        {cat} ({count})
+                    </a>
+                ))}
+            </div>
+
+            <div class="cards-grid">
+                {articles.map(article => (
+                    <ArticleCard
+                        title={article.data.title}
+                        excerpt={article.data.excerpt}
+                        category={article.data.category}
+                        coverImage={article.data.coverImage}
+                        coverAlt={article.data.coverAlt}
+                        slug={article.id}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+</BaseLayout>
