@@ -7,10 +7,12 @@ interface Props {
     description: string;
     ogType?: string;
     canonicalPath?: string;
+    ogImage?: string;
 }
 
-const { title, description, ogType = 'website', canonicalPath } = Astro.props;
+const { title, description, ogType = 'website', canonicalPath, ogImage } = Astro.props;
 const canonicalURL = canonicalPath ? new URL(canonicalPath, Astro.site) : Astro.url;
+const ogImageURL = ogImage ? new URL(ogImage, Astro.site).href : undefined;
 ---
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -22,6 +24,13 @@ const canonicalURL = canonicalPath ? new URL(canonicalPath, Astro.site) : Astro.
     <meta property="og:description" content={description}>
     <meta property="og:type" content={ogType}>
     <meta property="og:locale" content="ar_SA">
+    <meta property="og:site_name" content="تربية بلس">
+    <meta property="og:url" content={canonicalURL}>
+    {ogImageURL && <meta property="og:image" content={ogImageURL} />}
+    {ogImageURL && <meta name="twitter:card" content="summary_large_image" />}
+    {ogImageURL && <meta name="twitter:image" content={ogImageURL} />}
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
     <link rel="canonical" href={canonicalURL}>
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">

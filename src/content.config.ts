@@ -14,6 +14,10 @@ const articles = defineCollection({
         coverImage: z.string(),
         coverAlt: z.string(),
         excerpt: z.string(),
+        faq: z.array(z.object({
+            question: z.string(),
+            answer: z.string(),
+        })).optional(),
     }),
 });
 
