@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://tarbiyaplus.com',
+  site: 'https://www.tarbiyaplus.com',
   integrations: [mdx(), sitemap()],
   redirects: {
     '/sitemap.xml': '/sitemap-index.xml',
